@@ -1,29 +1,44 @@
 /*
  *Copyright (c) 2022 All rights reserved
- *@description: main function for 
+ *@description: main function for
  *@author: Zhixing Lu
  *@date: 2022-06-25
  *@email: luzhixing12345@163.com
  *@Github: luzhixing12345
-*/
+ */
 
 #include <iostream>
-#include <SDL2/SDL.h>
+#include "screen.h"
+#include <numeric>
+#include <cmath>
+// #include <tgmath.h>
 
-int main(int argc, char *argv[])
-{
-    SDL_Window* window = 0;
-    SDL_Renderer* render = 0;
-    SDL_Init(SDL_INIT_EVERYTHING);
-    window = SDL_CreateWindow("hello" , SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
-    render = SDL_CreateRenderer(window,-1,0);
-    SDL_SetRenderDrawColor(render,0,255,0,255);
-    SDL_RenderClear(render);
-    SDL_RenderPresent(render);
-    SDL_Delay(5000);
-    SDL_DestroyWindow(window);
-    SDL_DestroyRenderer(render);
-    SDL_Quit();
+void line(Screen &screen, float x1, float y1, float x2, float y2) {
+    float dy = y2-y1;
+    float dx = x2-x1;
+    float length = std::sqrt(dx*dx + dy*dy);
+    float angle = std::atan2(dy,dx);
+
+    for (int i=0 ;i<length ;i++) {
+        screen.pixel(
+            x1 + std::cos(angle) *i,
+            y1 + std::sin(angle) *i
+        );
+    }
+
+}
+
+int main(int argc, char *argv[]) {
+    Screen screen;
+
+    // for (int i = 0; i < 100; i++) {
+    //     screen.pixel(rand() % 640, rand() % 480);
+    // }
+    line(screen,0,0,400,400);
+    while (1) {
+        screen.show();
+        screen.input();
+    }
 
     return 0;
 }

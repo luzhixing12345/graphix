@@ -15,9 +15,32 @@ Especially thanks for [YouTube video](https://www.youtube.com/watch?v=kdRJgYO1BJ
 ## Compile and Run
 
 ```bash
+git clone git@github.com:luzhixing12345/cube-rotation.git
+cd cube-rotation
 make
-main
 ```
+
+There are three basic model in `3D-polyhedron` folder, you could use them as
+
+- cube
+
+  ```bash
+  main cube
+  ```
+
+- regular-triangular-pyramid
+
+  ```bash
+  main regular-triangular-pyramid
+  ```
+
+- regular-octahedron
+
+  ```bash
+  main regular-octahedron
+  ```
+
+If you prefer to use a more compilicated polyhedron, see more information in [3D-polyhedron model](3D-polyhedron/README.md)
 
 ## About Environment
 
