@@ -12,6 +12,10 @@ Especially thanks for [YouTube video](https://www.youtube.com/watch?v=kdRJgYO1BJ
 
 ## Visualization GIF
 
+|cube|regular-triangular-pyramid|regular-octahedron|
+|:--:|:--:|:--:|
+|![smallcube](https://raw.githubusercontent.com/learner-lu/picbed/master/smallcube.gif)|![tran](https://raw.githubusercontent.com/learner-lu/picbed/master/tran.gif)|![obasd](https://raw.githubusercontent.com/learner-lu/picbed/master/obasd.gif)|
+
 ## Compile and Run
 
 ```bash
