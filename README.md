@@ -68,7 +68,7 @@ There are also many excellent library such as OpenGL, MFC, QT, EasyX and so on w
 
 first calculate the centriod of the polyhedron
 
-then use the rotating martix transformation
+then use the rotating matrix transformation
 
 - 2D
 

@@ -79,15 +79,15 @@ void Polyhedron::drawEdges() {
     }
 }
 
-void Polyhedron::restoreInitialState() {
-    if (x_axis != constant_x_axis) {
-        x_axis = x_axis < constant_x_axis ? x_axis + restore_var : x_axis - restore_var;
-    }
-    if (y_axis != constant_y_axis) {
-        y_axis = y_axis < constant_y_axis ? y_axis + restore_var : y_axis - restore_var;
-    }
-    // z_axis speed no change
-}
+// void Polyhedron::restoreInitialState() {
+//     if (x_axis != constant_x_axis) {
+//         x_axis = x_axis < constant_x_axis ? x_axis + restore_var : x_axis - restore_var;
+//     }
+//     if (y_axis != constant_y_axis) {
+//         y_axis = y_axis < constant_y_axis ? y_axis + restore_var : y_axis - restore_var;
+//     }
+//     // z_axis speed no change
+// }
 
 void Polyhedron::resetMouse() {
 
@@ -131,7 +131,7 @@ void Polyhedron::rotate() {
     mouse = screen.input();
     if (mouse.x == -1 && mouse.y == -1) {
         if (mouse_clicked) resetMouse();
-        restoreInitialState();
+        // restoreInitialState();
     } else {
         if (!mouse_clicked) {
             last = mouse;

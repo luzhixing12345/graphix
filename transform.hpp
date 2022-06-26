@@ -38,7 +38,7 @@ public:
     void _rotate(vec3 &point, float x_axis, float y_axis, float z_axis);
     void drawEdges();
     void line(float x1, float y1, float x2, float y2);
-    void restoreInitialState();
+    // void restoreInitialState();
     void calculateNewRotateSpeed();
     void resetMouse();
 
@@ -47,14 +47,14 @@ private:
     Mouse mouse;
     vec3 centriod = {0,0,0};
 
-    float constant_x_axis = 0.002;
-    float constant_y_axis = 0.001;
+    // float constant_x_axis = 0.002;
+    // float constant_y_axis = 0.001;
 
     float x_axis = 0.02;
     float y_axis = 0.01;
     float z_axis = 0.02;
 
-    float restore_var = 0.00001;
+    // float restore_var = 0.00001;
     float change_var = 0.0002;
 
     bool mouse_clicked = false;
