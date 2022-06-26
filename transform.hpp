@@ -47,12 +47,12 @@ private:
     Mouse mouse;
     vec3 centriod = {0,0,0};
 
-    float init_x_axis = 0.002;
-    float init_y_axis = 0.001;
+    float constant_x_axis = 0.002;
+    float constant_y_axis = 0.001;
 
-    float x_axis = 0.002;
-    float y_axis = 0.001;
-    float z_axis = 0.002;
+    float x_axis = 0.02;
+    float y_axis = 0.01;
+    float z_axis = 0.02;
 
     float restore_var = 0.00001;
     float change_var = 0.0002;

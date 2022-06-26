@@ -80,11 +80,11 @@ void Polyhedron::drawEdges() {
 }
 
 void Polyhedron::restoreInitialState() {
-    if (x_axis != init_x_axis) {
-        x_axis = x_axis < init_x_axis ? x_axis + restore_var : x_axis - restore_var;
+    if (x_axis != constant_x_axis) {
+        x_axis = x_axis < constant_x_axis ? x_axis + restore_var : x_axis - restore_var;
     }
-    if (y_axis != init_y_axis) {
-        y_axis = y_axis < init_y_axis ? y_axis + restore_var : y_axis - restore_var;
+    if (y_axis != constant_y_axis) {
+        y_axis = y_axis < constant_y_axis ? y_axis + restore_var : y_axis - restore_var;
     }
     // z_axis speed no change
 }

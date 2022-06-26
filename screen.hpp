@@ -35,8 +35,8 @@ public:
     void clear();
 
 private:
-    const int WINDOW_WIDTH = 640;
-    const int WINDOW_HEIGHT = 480;
+    const int WINDOW_WIDTH = 640*2;
+    const int WINDOW_HEIGHT = 480*2;
 };
 
 
