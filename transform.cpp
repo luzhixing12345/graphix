@@ -96,6 +96,7 @@ void Polyhedron::resetMouse() {
     mouse_clicked = false;
 }
 
+
 void Polyhedron::calculateNewRotateSpeed() {
     if (last.x > second.x && last.y> second.y) {
         // right + down
