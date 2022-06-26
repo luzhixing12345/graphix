@@ -56,6 +56,39 @@ There are also many excellent library such as OpenGL, MFC, QT, EasyX and so on w
 
 ## Core Solution Method
 
-```c++
+first calcuate the centriod of the polyhedron
 
+then use the rotating martix transformation
+
+- 2D
+
+  ![20220626173256](https://raw.githubusercontent.com/learner-lu/picbed/master/20220626173256.png)
+
+- 3D
+
+  ![20220626173340](https://raw.githubusercontent.com/learner-lu/picbed/master/20220626173340.png)
+
+```c++
+point.x -= centriod.x;
+point.y -= centriod.y;
+point.z -= centriod.z;
+
+float rad = 0;
+
+rad = x_axis;
+point.y = std::cos(rad) * point.y - std::sin(rad) * point.z;
+point.z = std::sin(rad) * point.y + std::cos(rad) * point.z;
+
+rad = y_axis;
+point.x = std::cos(rad) * point.x + std::sin(rad) * point.z;
+point.z = -std::sin(rad) * point.x + std::cos(rad) * point.z;
+
+rad = z_axis;
+point.x = std::cos(rad) * point.x - std::sin(rad) * point.y;
+point.y = std::sin(rad) * point.x + std::cos(rad) * point.y;
+
+
+point.x += centriod.x;
+point.y += centriod.y;
+point.z += centriod.z;
 ```
