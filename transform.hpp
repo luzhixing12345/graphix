@@ -19,6 +19,8 @@ struct vec3 {
     float z;
 };
 
+
+
 struct connection {
     int start;
     int end;
@@ -31,15 +33,33 @@ public:
     std::vector<connection> edges;
 
     explicit Polyhedron(Screen &screen) : screen(screen){};
-    void rotate(float x_axis, float y_axis, float z_axis);
+    void rotate();
     void calculateCentroid();
     void _rotate(vec3 &point, float x_axis, float y_axis, float z_axis);
     void drawEdges();
     void line(float x1, float y1, float x2, float y2);
+    void restoreInitialState();
+    void calculateNewRotateSpeed();
+    void resetMouse();
 
 private:
     Screen screen;
+    Mouse mouse;
     vec3 centriod = {0,0,0};
+
+    float init_x_axis = 0.002;
+    float init_y_axis = 0.001;
+
+    float x_axis = 0.002;
+    float y_axis = 0.001;
+    float z_axis = 0.002;
+
+    float restore_var = 0.00001;
+    float change_var = 0.0002;
+
+    bool mouse_clicked = false;
+    Mouse last;
+    Mouse second;
 };
 
 #endif

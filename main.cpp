@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
 
     polyhedron.calculateCentroid();
     while (1) {
-        
-        polyhedron.rotate(0.002, 0.001, 0.004);
+
+        polyhedron.rotate();
 
     }
 

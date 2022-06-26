@@ -46,7 +46,9 @@ There are three basic model in `3D-polyhedron` folder, you could use them as
 
 If you prefer to use a more compilicated polyhedron, see more information in [3D-polyhedron model](3D-polyhedron/README.md)
 
-## About Environment
+## About
+
+### About Environment
 
 This project uses [SDL](https://www.libsdl.org/) to create a window and show the result. I have linked all the related files and put them under [src](src) so you could directly compile it with g++ without downloading SDL first.
 
@@ -54,7 +56,7 @@ But if you need to set a permanent SDL workspace, [this video](https://www.youtu
 
 There are also many excellent library such as OpenGL, MFC, QT, EasyX and so on which can help you create a interactive window and show the picture. Use them as you like.
 
-## Core Solution Method
+### About basic rotating core method
 
 first calcuate the centriod of the polyhedron
 
@@ -67,6 +69,8 @@ then use the rotating martix transformation
 - 3D
 
   ![20220626173340](https://raw.githubusercontent.com/learner-lu/picbed/master/20220626173340.png)
+
+[more information about MVP](https://zhuanlan.zhihu.com/p/478332678)
 
 ```c++
 point.x -= centriod.x;
@@ -92,3 +96,6 @@ point.x += centriod.x;
 point.y += centriod.y;
 point.z += centriod.z;
 ```
+
+### About mouse interaction with rotation
+

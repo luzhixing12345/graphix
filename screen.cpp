@@ -8,6 +8,7 @@
 */
 
 #include "screen.hpp"
+#include <iostream>
 
 Screen::Screen()
 {
@@ -34,16 +35,30 @@ void Screen::show()
     SDL_RenderPresent(renderer);
 }
 
-void Screen::input()
-{
+Mouse Screen::input()
+{    
+    Mouse mouse;
     while (SDL_PollEvent(&e))
     {
-        if (e.type == SDL_QUIT)
-        {
+        if (e.type == SDL_QUIT) {
             SDL_Quit();
             exit(0);
         }
+
+        Uint32 buttons;
+
+        SDL_PumpEvents();  // make sure we have the latest mouse state.
+
+        buttons = SDL_GetMouseState(&mouse.x, &mouse.y);
+
+        if ((buttons & SDL_BUTTON_LMASK) != 0) {
+            // std::cout << mouse.x << " " << mouse.y << std::endl;
+            return mouse;
+        }
     }
+    mouse.x = -1;
+    mouse.y = -1;
+    return mouse;
 }
 
 void Screen::clear() {

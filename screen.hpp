@@ -14,6 +14,12 @@
 #include <SDL2/SDL.h>
 #include <vector>
 
+struct Mouse {
+    int x;
+    int y;
+};
+
+
 class Screen
 {
 public:
@@ -25,12 +31,12 @@ public:
     Screen();
     void pixel(float x, float y);
     void show();
-    void input();
+    Mouse input();
     void clear();
 
 private:
-    const int WINDOW_WIDTH = 1280;
-    const int WINDOW_HEIGHT = 960;
+    const int WINDOW_WIDTH = 640;
+    const int WINDOW_HEIGHT = 480;
 };
 
 

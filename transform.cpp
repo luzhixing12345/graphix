@@ -34,14 +34,17 @@ void Polyhedron::_rotate(vec3 &point, float x_axis = 1, float y_axis = 1, float 
 
     float rad = 0;
 
+    // rotate about X axis
     rad = x_axis;
     point.y = std::cos(rad) * point.y - std::sin(rad) * point.z;
     point.z = std::sin(rad) * point.y + std::cos(rad) * point.z;
 
+    // rotate about Y axis 
     rad = y_axis;
     point.x = std::cos(rad) * point.x + std::sin(rad) * point.z;
     point.z = -std::sin(rad) * point.x + std::cos(rad) * point.z;
 
+    // rotate about Z axis
     rad = z_axis;
     point.x = std::cos(rad) * point.x - std::sin(rad) * point.y;
     point.y = std::sin(rad) * point.x + std::cos(rad) * point.y;
@@ -76,7 +79,44 @@ void Polyhedron::drawEdges() {
     }
 }
 
-void Polyhedron::rotate(float x_axis, float y_axis, float z_axis) {
+void Polyhedron::restoreInitialState() {
+    if (x_axis != init_x_axis) {
+        x_axis = x_axis < init_x_axis ? x_axis + restore_var : x_axis - restore_var;
+    }
+    if (y_axis != init_y_axis) {
+        y_axis = y_axis < init_y_axis ? y_axis + restore_var : y_axis - restore_var;
+    }
+    // z_axis speed no change
+}
+
+void Polyhedron::resetMouse() {
+
+    last = {.x = -1, .y = -1};
+    second = {.x = -1, .y = -1};
+    mouse_clicked = false;
+}
+
+void Polyhedron::calculateNewRotateSpeed() {
+    if (last.x > second.x && last.y> second.y) {
+        // right + down
+        x_axis = -(last.x - second.x) * change_var;
+        y_axis = (last.y - second.y) * change_var;
+    } else if (last.x > second.x && last.y < second.y) {
+        // right + up
+        x_axis = (last.x - second.x) * change_var;
+        y_axis = (second.y - last.y) * change_var;
+    } else if (last.x < second.x && last.y > second.y) {
+        // left + down
+        x_axis = (last.x - second.x) * change_var;
+        y_axis = (second.y - last.y) * change_var;
+    } else {
+        // left + up
+        x_axis = (second.x - last.x) * change_var;
+        y_axis = (last.y - second.y) * change_var;
+    }
+}
+
+void Polyhedron::rotate() {
     
     for (vec3 &point : vertexs) {
         _rotate(point, x_axis, y_axis, z_axis);
@@ -87,6 +127,19 @@ void Polyhedron::rotate(float x_axis, float y_axis, float z_axis) {
 
     screen.show();
     screen.clear();
-    screen.input();
+    mouse = screen.input();
+    if (mouse.x == -1 && mouse.y == -1) {
+        if (mouse_clicked) resetMouse();
+        restoreInitialState();
+    } else {
+        if (!mouse_clicked) {
+            last = mouse;
+            mouse_clicked = true;
+        } else {
+            second = last;
+            last = mouse;
+            calculateNewRotateSpeed();
+        }
+    }
     SDL_Delay(30);
 }
