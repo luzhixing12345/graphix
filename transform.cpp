@@ -100,20 +100,20 @@ void Polyhedron::resetMouse() {
 void Polyhedron::calculateNewRotateSpeed() {
     if (last.x > second.x && last.y> second.y) {
         // right + down
-        x_axis = -(last.x - second.x) * change_var;
-        y_axis = (last.y - second.y) * change_var;
+        x_axis = (last.x - second.x) * change_var;
+        y_axis = -(last.y - second.y) * change_var;
     } else if (last.x > second.x && last.y < second.y) {
         // right + up
-        x_axis = (last.x - second.x) * change_var;
-        y_axis = (second.y - last.y) * change_var;
+        x_axis = -(last.x - second.x) * change_var;
+        y_axis = (last.y - second.y) * change_var;
     } else if (last.x < second.x && last.y > second.y) {
         // left + down
-        x_axis = (last.x - second.x) * change_var;
-        y_axis = (second.y - last.y) * change_var;
+        x_axis = -(last.x - second.x) * change_var;
+        y_axis = (last.y - second.y) * change_var;
     } else {
         // left + up
-        x_axis = (second.x - last.x) * change_var;
-        y_axis = (last.y - second.y) * change_var;
+        x_axis = (last.x - second.x) * change_var;
+        y_axis = -(last.y - second.y) * change_var;
     }
 }
 

@@ -50,8 +50,8 @@ private:
     // float constant_x_axis = 0.002;
     // float constant_y_axis = 0.001;
 
-    float x_axis = 0.02;
-    float y_axis = 0.01;
+    float x_axis = 0.01;
+    float y_axis = 0.02;
     float z_axis = 0.02;
 
     // float restore_var = 0.00001;
