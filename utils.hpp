@@ -54,6 +54,7 @@ void readPolyhedronVertex(const std::string &vertex_filename, std::vector<vec3> 
         point.y = temp_point[1];
         point.z = temp_point[2];
         vertexs.push_back(point);
+        temp_point.clear();
     }
     file_stream.close();
 }
@@ -78,6 +79,7 @@ void readPolyhedronEdge(const std::string &edge_filename, std::vector<connection
         edge.start = temp_edge[0];
         edge.end = temp_edge[1];
         edges.push_back(edge);
+        temp_edge.clear();
     }
 
     file_stream.close();

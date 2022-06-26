@@ -18,19 +18,16 @@ int main(int argc, char *argv[]) {
     }
 
     std::string polyhedron_name = argv[1];
-    Polyhedron polyhedron;
+    Screen screen = Screen();
+    Polyhedron polyhedron(screen);
     readPolyhedronFiles(polyhedron_name, polyhedron);
 
-    std::cout << polyhedron.edges.size() << " ";
-    std::cout << polyhedron.vertexs.size();
-    return 0;
 
-    Screen screen;
-
-    line(screen,0,0,400,400);
+    polyhedron.calculateCentroid();
     while (1) {
-        screen.show();
-        screen.input();
+        
+        polyhedron.rotate(0.002, 0.001, 0.004);
+
     }
 
     return 0;

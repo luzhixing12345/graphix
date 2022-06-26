@@ -24,11 +24,22 @@ struct connection {
     int end;
 };
 
-struct Polyhedron {
+class Polyhedron {
+
+public:
     std::vector<vec3> vertexs;
     std::vector<connection> edges;
-};
 
-void line(Screen &screen, float x1, float y1, float x2, float y2);
+    explicit Polyhedron(Screen &screen) : screen(screen){};
+    void rotate(float x_axis, float y_axis, float z_axis);
+    void calculateCentroid();
+    void _rotate(vec3 &point, float x_axis, float y_axis, float z_axis);
+    void drawEdges();
+    void line(float x1, float y1, float x2, float y2);
+
+private:
+    Screen screen;
+    vec3 centriod = {0,0,0};
+};
 
 #endif
