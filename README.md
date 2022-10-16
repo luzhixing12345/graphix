@@ -26,6 +26,8 @@ Especially thanks for [YouTube video](https://www.youtube.com/watch?v=kdRJgYO1BJ
 
 ## Compile and Run
 
+download [src.zip](https://github.com/luzhixing12345/cube-rotation/releases/download/v0.0.1/src.zip) files and unzip it as `./src` for static lib
+
 ```bash
 git clone git@github.com:luzhixing12345/cube-rotation.git
 cd cube-rotation
@@ -37,19 +39,19 @@ There are three basic model in `3D-polyhedron` folder, you could use them as
 - cube
 
   ```bash
-  main cube
+  ./main cube
   ```
 
 - regular-triangular-pyramid
 
   ```bash
-  main regular-triangular-pyramid
+  ./main regular-triangular-pyramid
   ```
 
 - regular-octahedron
 
   ```bash
-  main regular-octahedron
+  ./main regular-octahedron
   ```
 
 If you prefer to use a more compilicated polyhedron, see more information in [3D-polyhedron model](3D-polyhedron/README.md)
