@@ -14,9 +14,9 @@ Especially thanks for [YouTube video](https://www.youtube.com/watch?v=kdRJgYO1BJ
 
 ### Only rotation
 
-|cube|regular-triangular-pyramid|regular-octahedron|
-|:--:|:--:|:--:|
-|![smallcube](https://raw.githubusercontent.com/learner-lu/picbed/master/smallcube.gif)|![tran](https://raw.githubusercontent.com/learner-lu/picbed/master/tran.gif)|![obasd](https://raw.githubusercontent.com/learner-lu/picbed/master/obasd.gif)|
+|                                          cube                                          |                          regular-triangular-pyramid                          |                               regular-octahedron                               |
+| :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------------: |
+| ![smallcube](https://raw.githubusercontent.com/learner-lu/picbed/master/smallcube.gif) | ![tran](https://raw.githubusercontent.com/learner-lu/picbed/master/tran.gif) | ![obasd](https://raw.githubusercontent.com/learner-lu/picbed/master/obasd.gif) |
 
 > if you only want to see or use this part, jump to [this commit](https://github.com/luzhixing12345/cube-rotation/tree/a67acca37af1666ffcbfce6cd5ebd9eeb7c968a6) is enough.
 
@@ -26,10 +26,11 @@ Especially thanks for [YouTube video](https://www.youtube.com/watch?v=kdRJgYO1BJ
 
 ## Compile and Run
 
-download [src.zip](https://github.com/luzhixing12345/cube-rotation/releases/download/v0.0.1/src.zip) files and unzip it as `./src` for static lib
+```bash
+sudo apt install libsdl2-dev
+```
 
 ```bash
-git clone git@github.com:luzhixing12345/cube-rotation.git
 cd cube-rotation
 make
 ```
@@ -124,4 +125,4 @@ Yes! That's a big problem. As you can see, if you set a high rotating speed. Thi
 
 ![floatproblem](https://raw.githubusercontent.com/learner-lu/picbed/master/floatproblem.gif)
 
-Change float to double doesn't solve the problem, I still couldn't find a good solution.
+Change float to float doesn't solve the problem, I still couldn't find a good solution.

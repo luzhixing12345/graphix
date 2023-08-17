@@ -5,12 +5,13 @@
  *@date: 2022-06-26
  *@email: luzhixing12345@163.com
  *@Github: luzhixing12345
-*/
+ */
 
 #ifndef TRANSFORM_HPP_
-#define TRANSFORM_HPP_  
+#define TRANSFORM_HPP_
 
 #include <cmath>
+
 #include "screen.hpp"
 
 struct vec3 {
@@ -19,16 +20,13 @@ struct vec3 {
     float z;
 };
 
-
-
 struct connection {
     int start;
     int end;
 };
 
 class Polyhedron {
-
-public:
+   public:
     std::vector<vec3> vertexs;
     std::vector<connection> edges;
 
@@ -42,10 +40,10 @@ public:
     void calculateNewRotateSpeed();
     void resetMouse();
 
-private:
+   private:
     Screen screen;
-    Mouse mouse;
-    vec3 centriod = {0,0,0};
+    KeyBoard key;
+    vec3 centriod = {0, 0, 0};
 
     // float constant_x_axis = 0.002;
     // float constant_y_axis = 0.001;
@@ -58,8 +56,8 @@ private:
     float change_var = 0.0002;
 
     bool mouse_clicked = false;
-    Mouse last;
-    Mouse second;
+    KeyBoard last;
+    KeyBoard second;
 };
 
 #endif

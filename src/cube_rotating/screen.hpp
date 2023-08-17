@@ -8,21 +8,18 @@
  */
 
 #pragma once
+#include <SDL2/SDL_stdinc.h>
 #ifndef SCREEN_HPP_
-#define SCREEN_HPP_ 
+#define SCREEN_HPP_
 
 #include <SDL2/SDL.h>
+
 #include <vector>
 
-struct Mouse {
-    int x;
-    int y;
-};
+typedef Uint64 KeyBoard;
 
-
-class Screen
-{
-public:
+class Screen {
+   public:
     SDL_Event e;
     SDL_Window *window;
     SDL_Renderer *renderer;
@@ -31,13 +28,12 @@ public:
     Screen();
     void pixel(float x, float y);
     void show();
-    Mouse input();
+    KeyBoard input();
     void clear();
 
-private:
-    const int WINDOW_WIDTH = 640*2;
-    const int WINDOW_HEIGHT = 480*2;
+   private:
+    const int WINDOW_WIDTH = 640 * 2;
+    const int WINDOW_HEIGHT = 480 * 2;
 };
-
 
 #endif
