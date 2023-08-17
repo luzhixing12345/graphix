@@ -27,7 +27,6 @@ class Screen {
 
     Screen();
     void pixel(float x, float y);
-    void show();
     KeyBoard input();
     void clear();
 

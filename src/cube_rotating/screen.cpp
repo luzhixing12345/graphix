@@ -43,16 +43,6 @@ void Screen::pixel(float x, float y) {
     points.push_back({(float)x, (float)y});
 }
 
-void Screen::show() {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
-
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    for (auto &point : points) {
-        SDL_RenderDrawPointF(renderer, point.x, point.y);
-    }
-    SDL_RenderPresent(renderer);
-}
 
 KeyBoard Screen::input() {
     while (SDL_PollEvent(&e)) {

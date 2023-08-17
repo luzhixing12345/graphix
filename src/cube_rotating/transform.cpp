@@ -70,45 +70,13 @@ void Polyhedron::drawEdges() {
     for (connection &edge : edges) {
         line(vertexs[edge.start].x, vertexs[edge.start].y, vertexs[edge.end].x, vertexs[edge.end].y);
     }
+    // SDL_RenderPresent(screen.renderer);
 }
 
-// void Polyhedron::restoreInitialState() {
-//     if (x_axis != constant_x_axis) {
-//         x_axis = x_axis < constant_x_axis ? x_axis + restore_var : x_axis - restore_var;
-//     }
-//     if (y_axis != constant_y_axis) {
-//         y_axis = y_axis < constant_y_axis ? y_axis + restore_var : y_axis - restore_var;
-//     }
-//     // z_axis speed no change
-// }
-
-// void Polyhedron::resetMouse() {
-//     last = {.x = -1, .y = -1};
-//     second = {.x = -1, .y = -1};
-//     mouse_clicked = false;
-// }
-
-// void Polyhedron::calculateNewRotateSpeed() {
-//     if (last.x > second.x && last.y > second.y) {
-//         // right + down
-//         x_axis = (last.x - second.x) * change_var;
-//         y_axis = -(last.y - second.y) * change_var;
-//     } else if (last.x > second.x && last.y < second.y) {
-//         // right + up
-//         x_axis = -(last.x - second.x) * change_var;
-//         y_axis = (last.y - second.y) * change_var;
-//     } else if (last.x < second.x && last.y > second.y) {
-//         // left + down
-//         x_axis = -(last.x - second.x) * change_var;
-//         y_axis = (last.y - second.y) * change_var;
-//     } else {
-//         // left + up
-//         x_axis = (last.x - second.x) * change_var;
-//         y_axis = -(last.y - second.y) * change_var;
-//     }
-// }
-
 void Polyhedron::rotate() {
+    SDL_SetRenderDrawColor(screen.renderer, 0, 0, 0, 255);
+    SDL_RenderClear(screen.renderer);
+    SDL_SetRenderDrawColor(screen.renderer, 255, 255, 255, 255);
     for (vec3 &point : vertexs) {
         _rotate(point, x_axis, y_axis, z_axis);
         screen.pixel(point.x, point.y);
@@ -116,7 +84,10 @@ void Polyhedron::rotate() {
 
     drawEdges();
 
-    screen.show();
+    for (auto &point : this->screen.points) {
+        SDL_RenderDrawPointF(this->screen.renderer, point.x, point.y);
+    }
+    SDL_RenderPresent(this->screen.renderer);
     screen.clear();
     key = screen.input();
     if (key != 0) {

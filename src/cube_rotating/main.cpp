@@ -126,6 +126,8 @@ int main(int argc, char *argv[]) {
 
     // 计算旋转中心点
     polyhedron.calculateCentroid();
+
+    
     while (1) {
         polyhedron.rotate();
     }
